@@ -4,15 +4,15 @@ const auth = require('basic-auth-connect');
 
 const app = express();
 
-// Valfri Basic Auth (användarnamn/lösenord)
-app.use(auth('user', 'password'));  // ändra 'user' och 'password'
+// Basic Auth (ändra 'user' och 'password' till egna)
+app.use(auth('user', 'password'));
 
-// Initiera Node-Unblocker
-const unblocker = new Unblocker();
-app.use(unblocker.middleware());
+// Initiera "pooo" proxy
+const pooo = new Unblocker();
+app.use(pooo.middleware());
 
 // Render använder process.env.PORT
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`Node-Unblocker körs på port ${port}`);
+  console.log(`Pooo proxy körs på port ${port}`);
 });
